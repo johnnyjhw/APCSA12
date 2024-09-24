@@ -15,7 +15,7 @@ public class Cylinder {
     }
 
      public String toString() {
-        return "Hello, I am a cylinder with a radius of " + getRadius() + " and height of " + getHeight();
+        return "Hello, I am a cylinder with a radius of " + base.getRadius() + " and height of " + height;
     }
     
     
