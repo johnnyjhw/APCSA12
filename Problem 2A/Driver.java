@@ -1,9 +1,7 @@
 
 /**
- * Write a description of class Driver here.
- *
- * @author (your name)
- * @version (a version number or a date)
+ * Johnny Wang
+ * V1 Sept 23
  */
 public class Driver{
     public static void main (String [] args){
