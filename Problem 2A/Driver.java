@@ -12,7 +12,6 @@ public class Driver{
         
         System.out.println("Creating a circle with the default constructor!");
         System.out.println(c1);
-        System.out.println("Hello, I am a circle with radius " + c1.getRadius());
         System.out.println("getRadius() --> " + c1.getRadius() + " units");
         System.out.println("circumference() " + c1.circumference());
         System.out.println("area() --> " + c1.area() + " units^2");
@@ -20,7 +19,6 @@ public class Driver{
         
         System.out.println("Creating a circle with the parameterized constructor!");
         System.out.println(c2);
-        System.out.println("Hello, I am a circle with radius " + c2.getRadius());
         System.out.println("getRadius() --> " + c2.getRadius() + " units");
         System.out.println("circumference() " + c2.circumference());
         System.out.println("area() --> " + c2.area() + " units");
