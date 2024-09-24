@@ -29,14 +29,12 @@ public class Cylinder {
 
  
     public double getSurfaceArea() {
-        double radius = base.getRadius();
-        return 2 * Math.PI * radius * height + 2 * Math.PI * radius * radius;
+        return base.area()*2 + height*base.circumference();
     }
 
 
     public double volume() {
-        double radius = base.getRadius();
-        return Math.PI * radius * radius * height;
+        return base.area()*height;
     }
 
    
