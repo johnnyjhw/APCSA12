@@ -43,7 +43,7 @@ public class Review {
       input.close();
     }
     catch(Exception e){
-      System.out.println("Error reading or parsing postitiveAdjectives.txt\n" + e);
+      System.out.println("Error reading or parsing postitiveAdjectives.txt " + e);
     }   
  
   //read in the negative adjectives in negativeAdjectives.txt
@@ -204,6 +204,56 @@ public class Review {
      }
      return rating;
   }
-}
   
+  public static String fakeReview(String fileName){
+      String review = textToString(fileName);
+      
+          while(review.indexOf("*")  != -1){
+              int starIndex = review.indexOf("*");
+              int nextSpaceIndex = review.indexOf(" ", starIndex);
+              String firstSubstring = review.substring(0, starIndex);
+              String lastSubstring = review.substring(nextSpaceIndex);
+              if(!Character.isLetter(review.charAt(nextSpaceIndex-1))){
+                  lastSubstring = review.substring(nextSpaceIndex -1);
+              } 
+              review = firstSubstring + randomAdjective() + lastSubstring;
+          }
+       return review;   
+      }
+      
+        public static String postiveReview(String fileName){
+      String review = textToString(fileName);
+      
+          while(review.indexOf("*")  != -1){
+              int starIndex = review.indexOf("*");
+              int nextSpaceIndex = review.indexOf(" ", starIndex);
+              String firstSubstring = review.substring(0, starIndex);
+              String lastSubstring = review.substring(nextSpaceIndex);
+              if(!Character.isLetter(review.charAt(nextSpaceIndex-1))){
+                  lastSubstring = review.substring(nextSpaceIndex -1);
+              } 
+              review = firstSubstring + randomPositiveAdj() + lastSubstring;
+          }
+       return review;   
+      }
+      
+      public static String negativeReview(String fileName){
+            String review = textToString(fileName);
+      
+          while(review.indexOf("*")  != -1){
+              int starIndex = review.indexOf("*");
+              int nextSpaceIndex = review.indexOf(" ", starIndex);
+              String firstSubstring = review.substring(0, starIndex);
+              String lastSubstring = review.substring(nextSpaceIndex);
+              if(!Character.isLetter(review.charAt(nextSpaceIndex-1))){
+                  lastSubstring = review.substring(nextSpaceIndex -1);
+              } 
+              review = firstSubstring + randomNegativeAdj() + lastSubstring;
+          }
+       return review;   
+      }
+          }
+ 
+
+
   
