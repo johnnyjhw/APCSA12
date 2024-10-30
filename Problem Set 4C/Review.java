@@ -164,28 +164,46 @@ public class Review {
   }
   
   public static double totalSentiment(String fileName){
-      int total = 0;
-      String blank = "";
-      String reviewText = textToString(fileName);
-      
-      for (int i = 0; i < reviewText.length(); i++)
-      {
-
-        if (reviewText.substring(i, i+1).equals(" ") || i + 1 == reviewText.length())
-         {
-            total += sentimentVal(removePunctuation(word));
-            blank = "";
-         }
-         else
-         {
-            word += reviewText.substring(i, i+1);
-         }
-      }
+      double total = 0;
+      String currentWord = "";
+      String review = textToString(fileName);
+        
+         while (review.indexOf(" ")  != -1){
+            int spaceIndex = review.indexOf(" ");
+            currentWord = review.substring(0,spaceIndex);
+            total += sentimentVal(removePunctuation(currentWord.toLowerCase()));
+            review = review.substring(spaceIndex+1);
+        }
+            
       return total;
   }
-  }
   
-  public static int starRating(String fileName){
-      
+   public static int starRating(String fileName){
+     double sentiment = totalSentiment(fileName);
+     int rating;
+
+     if (sentiment < 0)
+     {
+       rating = 1;
+     }
+     else if (sentiment < 2)
+     {
+       rating = 2;
+     }
+     else if (sentiment < 3)
+     {
+       rating = 3;
+     }
+     else if (sentiment < 5)
+     {
+       rating = 4;
+     }
+     else
+     {
+       rating = 5;
+     }
+     return rating;
   }
 }
+  
+  
