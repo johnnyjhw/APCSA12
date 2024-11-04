@@ -1,0 +1,10 @@
+#BlueJ class context
+comment0.target=encoder
+comment0.text=\n\ Write\ a\ description\ of\ class\ myprogram\ here.\n\n\ @author\ (your\ name)\n\ @version\ (a\ version\ number\ or\ a\ date)\n
+comment1.params=input
+comment1.target=java.lang.String\ secretcode(java.lang.String)
+comment2.params=input
+comment2.target=java.lang.String\ secretmessage(java.lang.String)
+comment3.params=word
+comment3.target=java.lang.String\ removePunctuation(java.lang.String)
+numComments=4
