@@ -1,10 +1,5 @@
 import java.util.Scanner;
-/**
- * Write a description of class TicTacToe here.
- *
- * @author (your name)
- * @version (a version number or a date)
- */
+
 public class TicTacToe
 {
   
@@ -68,37 +63,39 @@ public class TicTacToe
         System.out.println();
     }
     
-    public void promptMove(char symbol)
-    {
+    public void promptMove(char symbol) {
         System.out.println(symbol + ", make your move.");
         System.out.println();
-        
+
         int candidateRowMove = -1;
         int candidateColMove = -1;
-        do 
-        {    
-            System.out.print("Please enter a valid row position: ");
 
-            while(!input.hasNextInt())
+        boolean validMove = false;
+        while (!validMove) {
+            System.out.print("Please enter a valid row position: ");
+            while (!input.hasNextInt())
             {
                 System.out.print("Please enter an integer only: ");
                 input.next();
             }
             candidateRowMove = input.nextInt();
-            
+
             System.out.print("Please enter a valid column position: ");
-            while(!input.hasNextInt())
-            {
+            while (!input.hasNextInt()) {
                 System.out.print("Please enter an integer only: ");
                 input.next();
             }
             candidateColMove = input.nextInt();
+
+            validMove = checkValidMove(symbol, candidateRowMove, candidateColMove);
+            if (!validMove) {
+                System.out.println("Move was not valid. Try again.");
+            }   
         }
-        while(!checkValidMove(symbol, candidateRowMove, candidateColMove));
-        
+
         placeSymbol(symbol, candidateRowMove, candidateColMove);
-        
     }
+
     
     public boolean checkValidMove(char symbol, int row, int col)
     {
@@ -217,21 +214,7 @@ public class TicTacToe
             if (input.next().charAt(0) != 'y')
             {
                 keepPlaying = false;
-            }
-            
-            
-        }
-        
-
-        
-    }
-    
-    public TicTacToe()
-    {
-        char[][] board = {{' ',' ',' '},{' ',' ',' '},{' ',' ',' '}};
-        boolean gameOver = false;
-        boolean xPlayerTurn = true;
-        int round = 1;
-        
+            }   
+        }   
     }
 }
